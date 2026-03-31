@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Lab 9 Advanced Allure Suite</th></tr>
+<tr><td><a href="#t0">Allure Login and Cart Tests</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">30,812</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Lab 9 Advanced Allure Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Allure Login and Cart Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">bai2_pom.tests.CartTest</td><td><a href="#m0">testAddMultipleItemsAndVerify</a></td><td rowspan="1">1774947355195</td><td rowspan="1">936</td></tr><tr><th colspan="4">Allure Login and Cart Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">bai2_pom.tests.CartTest</td><td><a href="#m1">testAddItemToCart</a></td><td rowspan="1">1774947352492</td><td rowspan="1">867</td></tr><tr class="passedeven"><td><a href="#m2">testRemoveItemFromCart</a></td><td rowspan="1">1774947358229</td><td rowspan="1">22110</td></tr><tr class="passedodd"><td rowspan="5">bai7_refactor.tests.LoginTest</td><td><a href="#m3">testLogin</a></td><td rowspan="5">1774947352311</td><td rowspan="5">821</td></tr><tr class="passedodd"><td><a href="#m4">testLogin</a></td></tr><tr class="passedodd"><td><a href="#m5">testLogin</a></td></tr><tr class="passedodd"><td><a href="#m6">testLogin</a></td></tr><tr class="passedodd"><td><a href="#m7">testLogin</a></td></tr></tbody>
+</table>
+<h2>Allure Login and Cart Tests</h2><h3 id="m0">bai2_pom.tests.CartTest#testAddMultipleItemsAndVerify</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Cart badge count phải bằng 2 expected [2] but found [1]
+	at bai2_pom.tests.CartTest.testAddMultipleItemsAndVerify(CartTest.java:70)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">bai2_pom.tests.CartTest#testAddItemToCart</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">bai2_pom.tests.CartTest#testRemoveItemFromCart</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">bai7_refactor.tests.LoginTest#testLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>standard_user</td><td>secret_sauce</td><td>true</td><td>✅ Đăng nhập thành công</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">bai7_refactor.tests.LoginTest#testLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>standard_user</td><td>wrong_password</td><td>false</td><td>❌ Sai password</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">bai7_refactor.tests.LoginTest#testLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>standard_user</td><td></td><td>false</td><td>❌ Password rỗng</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">bai7_refactor.tests.LoginTest#testLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>locked_out_user</td><td>secret_sauce</td><td>false</td><td>❌ Tài khoản bị khóa</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">bai7_refactor.tests.LoginTest#testLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td></td><td>secret_sauce</td><td>false</td><td>❌ Username rỗng</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-31T15:55:49 ICT" name="Lab 9 Advanced Allure Suite" finished-at="2026-03-31T15:56:20 ICT" duration-ms="30812">
+    <groups>
+    </groups>
+    <test started-at="2026-03-31T15:55:49 ICT" name="Allure Login and Cart Tests" finished-at="2026-03-31T15:56:20 ICT" duration-ms="30812">
+      <class name="bai2_pom.tests.CartTest">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:49 ICT" name="setUp" finished-at="2026-03-31T15:55:52 ICT" duration-ms="2679" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAddItemToCart()[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:52 ICT" name="testAddItemToCart" description="Thêm sản phẩm vào giỏ hàng" finished-at="2026-03-31T15:55:53 ICT" duration-ms="867" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddItemToCart -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:53 ICT" name="tearDown" finished-at="2026-03-31T15:55:53 ICT" duration-ms="234" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAddItemToCart status=SUCCESS method=CartTest.testAddItemToCart()[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:53 ICT" name="setUp" finished-at="2026-03-31T15:55:55 ICT" duration-ms="1596" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAddMultipleItemsAndVerify()[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:55 ICT" name="testAddMultipleItemsAndVerify" description="Xác nhận nhiều sản phẩm trong giỏ hàng" finished-at="2026-03-31T15:55:56 ICT" duration-ms="936" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Cart badge count phải bằng 2 expected [2] but found [1]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Cart badge count phải bằng 2 expected [2] but found [1]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at bai2_pom.tests.CartTest.testAddMultipleItemsAndVerify(CartTest.java:70)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:840)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddMultipleItemsAndVerify -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:56 ICT" name="tearDown" finished-at="2026-03-31T15:55:56 ICT" duration-ms="326" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAddMultipleItemsAndVerify status=FAILURE method=CartTest.testAddMultipleItemsAndVerify()[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:56 ICT" name="setUp" finished-at="2026-03-31T15:55:58 ICT" duration-ms="1646" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRemoveItemFromCart()[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:55:58 ICT" name="testRemoveItemFromCart" description="Xóa sản phẩm khỏi giỏ hàng" finished-at="2026-03-31T15:56:20 ICT" duration-ms="22110" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRemoveItemFromCart -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5]" started-at="2026-03-31T15:56:20 ICT" name="tearDown" finished-at="2026-03-31T15:56:20 ICT" duration-ms="212" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testRemoveItemFromCart status=SUCCESS method=CartTest.testRemoveItemFromCart()[pri:0, instance:bai2_pom.tests.CartTest@7a639ec5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- bai2_pom.tests.CartTest -->
+      <class name="bai7_refactor.tests.LoginTest">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:49 ICT" name="setUp" finished-at="2026-03-31T15:55:51 ICT" duration-ms="2062" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:52 ICT" name="testLogin" description="DDT Login Test with Allure Report" data-provider="loginData" finished-at="2026-03-31T15:55:53 ICT" duration-ms="821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[standard_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[✅ Đăng nhập thành công]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:53 ICT" name="tearDown" finished-at="2026-03-31T15:55:53 ICT" duration-ms="173" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTest.testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:53 ICT" name="setUp" finished-at="2026-03-31T15:55:55 ICT" duration-ms="1745" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:55 ICT" name="testLogin" description="DDT Login Test with Allure Report" data-provider="loginData" finished-at="2026-03-31T15:55:55 ICT" duration-ms="653" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[standard_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[wrong_password]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[❌ Sai password]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:55 ICT" name="tearDown" finished-at="2026-03-31T15:55:55 ICT" duration-ms="172" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTest.testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:55 ICT" name="setUp" finished-at="2026-03-31T15:55:57 ICT" duration-ms="1283" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:57 ICT" name="testLogin" description="DDT Login Test with Allure Report" data-provider="loginData" finished-at="2026-03-31T15:55:58 ICT" duration-ms="932" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[locked_out_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[❌ Tài khoản bị khóa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:58 ICT" name="tearDown" finished-at="2026-03-31T15:55:58 ICT" duration-ms="201" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTest.testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:58 ICT" name="setUp" finished-at="2026-03-31T15:55:59 ICT" duration-ms="1391" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:55:59 ICT" name="testLogin" description="DDT Login Test with Allure Report" data-provider="loginData" finished-at="2026-03-31T15:56:00 ICT" duration-ms="441" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[❌ Username rỗng]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:56:00 ICT" name="tearDown" finished-at="2026-03-31T15:56:00 ICT" duration-ms="128" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTest.testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:56:00 ICT" name="setUp" finished-at="2026-03-31T15:56:01 ICT" duration-ms="1199" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:56:01 ICT" name="testLogin" description="DDT Login Test with Allure Report" data-provider="loginData" finished-at="2026-03-31T15:56:01 ICT" duration-ms="420" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[standard_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[❌ Password rỗng]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc]" started-at="2026-03-31T15:56:01 ICT" name="tearDown" finished-at="2026-03-31T15:56:02 ICT" duration-ms="131" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginTest.testLogin(java.lang.String,java.lang.String,boolean,java.lang.String)[pri:0, instance:bai7_refactor.tests.LoginTest@5d1e09bc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- bai7_refactor.tests.LoginTest -->
+    </test> <!-- Allure Login and Cart Tests -->
+  </suite> <!-- Lab 9 Advanced Allure Suite -->
+</testng-results>
