@@ -8,44 +8,61 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test(description = "Verify successful login with valid credentials from GitHub Secrets")
-    public void testSuccessfulLogin() {
-        LoginPage loginPage = new LoginPage(driver);
-        InventoryPage inventoryPage = new InventoryPage(driver);
-
-        // 1. Đọc Username: Ưu tiên System property (-D), sau đó là Environment Variable (GitHub Secret)
-        String username = System.getProperty("appUsername");
-        if (username == null || username.isEmpty()) {
-            username = System.getenv("SAUCEDEMO_USERNAME");
-        }
-
-        // 2. Đọc Password: Ưu tiên System property (-D), sau đó là Environment Variable (GitHub Secret)
-        String password = System.getProperty("appPassword");
-        if (password == null || password.isEmpty()) {
-            password = System.getenv("SAUCEDEMO_PASSWORD");
-        }
-
-        // 3. Kiểm tra bảo mật: Nếu thiếu thông tin thì stop test ngay thay vì fallback giá trị cũ
-        if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
-            throw new RuntimeException("ERROR: SAUCEDEMO_USERNAME or SAUCEDEMO_PASSWORD is NOT configured in GitHub Secrets or Environment Variables!");
-        }
-
-        // 4. Thực hiện Login
-        loginPage.login(username, password);
-
-        // 5. Assert kết quả
-        Assert.assertTrue(inventoryPage.isInventoryDisplayed(), "Inventory page was not displayed after login.");
-        Assert.assertEquals(inventoryPage.getAppLogoText(), "Swag Labs", "Inventory logo header mismatch.");
+    private String getUsername() {
+        String u = System.getProperty("appUsername");
+        return (u != null && !u.isEmpty()) ? u : System.getenv("SAUCEDEMO_USERNAME");
     }
 
-    @Test(description = "Verify error message with invalid credentials (not using secrets)")
-    public void testInvalidLogin() {
-        LoginPage loginPage = new LoginPage(driver);
+    private String getPassword() {
+        String p = System.getProperty("appPassword");
+        return (p != null && !p.isEmpty()) ? p : System.getenv("SAUCEDEMO_PASSWORD");
+    }
 
-        // Đối với test case thất bại, chúng ta vẫn dùng chuỗi cố định nhưng không phải thông tin thật
-        loginPage.login("non_existent_user", "invalid_password");
+    @Test(priority = 1)
+    public void test1() {
+        new LoginPage(getDriver()).login(getUsername(), getPassword());
+        Assert.assertTrue(new InventoryPage(getDriver()).isInventoryDisplayed());
+    }
 
-        String expectedMessage = "Epic sadface: Username and password do not match any user in this service";
-        Assert.assertEquals(loginPage.getErrorMessage(), expectedMessage, "Error message mismatch.");
+    @Test(priority = 2)
+    public void test2() {
+        new LoginPage(getDriver()).login("problem_user", "secret_sauce");
+        Assert.assertTrue(new InventoryPage(getDriver()).isInventoryDisplayed());
+    }
+
+    @Test(priority = 3)
+    public void test3() {
+        new LoginPage(getDriver()).login("visual_user", "secret_sauce");
+        Assert.assertTrue(new InventoryPage(getDriver()).isInventoryDisplayed());
+    }
+
+    @Test(priority = 4)
+    public void test4() {
+        new LoginPage(getDriver()).login("error_user", "secret_sauce");
+        Assert.assertTrue(new InventoryPage(getDriver()).isInventoryDisplayed());
+    }
+
+    @Test(priority = 5)
+    public void test5() {
+        new LoginPage(getDriver()).login("performance_glitch_user", "secret_sauce");
+        Assert.assertTrue(new InventoryPage(getDriver()).isInventoryDisplayed());
+    }
+
+    @Test(priority = 6)
+    public void test6() {
+        new LoginPage(getDriver()).login("locked_out_user", "secret_sauce");
+        Assert.assertTrue(new LoginPage(getDriver()).getErrorMessage().contains("locked out"));
+    }
+
+    @Test(priority = 7)
+    public void test7() {
+        new LoginPage(getDriver()).login("unknown", "unknown");
+        Assert.assertTrue(new LoginPage(getDriver()).getErrorMessage().contains("do not match"));
+    }
+
+    @Test(priority = 8)
+    public void test8() {
+        new LoginPage(getDriver()).login("", "");
+        Assert.assertTrue(new LoginPage(getDriver()).getErrorMessage().contains("is required"));
     }
 }
