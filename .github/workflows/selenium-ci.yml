@@ -1,20 +1,23 @@
 # .github/workflows/selenium-ci.yml
-name: Selenium Test Suite
+name: Selenium Test Automation Suite
 
 on:
   push:
     branches: [ main, develop ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+  workflow_dispatch: # Cho phép người dùng chạy thủ công từ tab Actions
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+
     strategy:
-      fail-fast: false # Đảm bảo nếu Chrome lỗi thì Firefox vẫn chạy tiếp
+      fail-fast: false # Đảm bảo job thứ 2 vẫn chạy nếu job đầu tiên thất bại
       matrix:
-        browser: [ chrome, firefox ] # Chạy song song 2 trình duyệt
+        # matrix.browser sẽ được truyền vào lệnh mvn test qua biến ${{ matrix.browser }}
+        browser: [chrome, firefox]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,21 +27,28 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven # Caches Maven dependencies for faster subsequent builds
+          cache: maven # Giúp tăng tốc độ tải các thư viện Maven cho lần chạy sau
 
-      - name: Run Selenium Tests (Chrome Headless)
+      - name: Run Selenium Tests on ${{ matrix.browser }}
+        # Lệnh chạy test truyền biến browser từ matrix và nhận credential từ GitHub Secrets
         run: |
-          mvn clean test -Dbrowser=chrome -Denv=dev -DsuiteXmlFile=testng-smoke.xml
+          echo "------ SECURITY CHECK: VERIFYING MASKED SECRETS ------"
+          echo "Target Browser: ${{ matrix.browser }}"
+          echo "Saucedemo Username should be masked: $SAUCEDEMO_USERNAME"
+          echo "--------------------------------------------------------"
+          
+          mvn clean test -Dbrowser=${{ matrix.browser }} -Denv=dev -DsuiteXmlFile=testng-smoke.xml
         env:
-          # Ensure secret SAUCEDEMO_PASSWORD is set in GitHub Repository Secrets
-          APP_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
+          # Truyền các Secret bảo mật từ GitHub Settings vào biến môi trường hệ thống
+          SAUCEDEMO_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
+          SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
 
-      - name: Upload Test Results and Screenshots
-        if: always() # Always run even if previous steps (tests) fail
+      - name: Upload Test Results and Screenshots for ${{ matrix.browser }}
+        if: always() # Luôn chạy kể cả khi test fail để nộp bài
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ matrix.browser }} # Tên riêng cho từng trình duyệt
+          name: test-results-${{ matrix.browser }}
           path: |
             target/surefire-reports/
             target/screenshots/
-          retention-days: 30
+          retention-days: 7
