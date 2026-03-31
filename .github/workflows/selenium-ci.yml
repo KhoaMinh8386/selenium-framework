@@ -11,7 +11,10 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    
+    strategy:
+      fail-fast: false # Đảm bảo nếu Chrome lỗi thì Firefox vẫn chạy tiếp
+      matrix:
+        browser: [ chrome, firefox ] # Chạy song song 2 trình duyệt
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,7 +37,7 @@ jobs:
         if: always() # Always run even if previous steps (tests) fail
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-and-screenshots
+          name: test-results-${{ matrix.browser }} # Tên riêng cho từng trình duyệt
           path: |
             target/surefire-reports/
             target/screenshots/

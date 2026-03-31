@@ -23,11 +23,17 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"browser", "env"})
-    public void setUp(String browser, String envParam) {
+    public void setUp(String browserFromXml, String envParam) {
+        // Ưu tiên đọc biến từ System Property (-Dbrowser) truyền từ Maven/Actions
+        String browser = System.getProperty("browser");
+        if (browser == null || browser.isEmpty()) {
+            browser = browserFromXml; // Nếu không có thì mới dùng mặc định trong XML
+        }
         this.env = envParam;
         driver = DriverFactory.createDriver(browser);
         driver.get("https://www.saucedemo.com/");
     }
+
 
     @AfterMethod
     public void tearDown(ITestResult result) {

@@ -14,12 +14,13 @@ public class LoginTest extends BaseTest {
         InventoryPage inventoryPage = new InventoryPage(driver);
 
         String username = "standard_user";
-        // Get password from System property (Maven -DappPassword) or Environment Variable
+        // Get password from System property (Maven -DappPassword) or Environment
+        // Variable
         String password = System.getProperty("appPassword");
         if (password == null || password.isEmpty()) {
             password = System.getenv("APP_PASSWORD");
         }
-        
+
         // Handle case where password is unknown/missing
         if (password == null || password.isEmpty()) {
             System.err.println("WARNING: APP_PASSWORD is not set. Using hardcoded password.");
@@ -29,7 +30,7 @@ public class LoginTest extends BaseTest {
         loginPage.login(username, password);
 
         Assert.assertTrue(inventoryPage.isInventoryDisplayed(), "Inventory page was not displayed after login.");
-        Assert.assertEquals(inventoryPage.getAppLogoText(), "SAI_TEN_LOGO_ROI", "Inventory logo header mismatch.");
+        Assert.assertEquals(inventoryPage.getAppLogoText(), "Swag Labs", "Inventory logo header mismatch.");
     }
 
     @Test(description = "Verify error message with invalid credentials")
