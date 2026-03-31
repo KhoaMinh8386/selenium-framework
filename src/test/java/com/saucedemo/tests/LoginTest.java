@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
         loginPage.login(username, password);
 
         Assert.assertTrue(inventoryPage.isInventoryDisplayed(), "Inventory page was not displayed after login.");
-        Assert.assertEquals(inventoryPage.getAppLogoText(), "Swag Labs", "Inventory logo header mismatch.");
+        Assert.assertEquals(inventoryPage.getAppLogoText(), "SAI_TEN_LOGO_ROI", "Inventory logo header mismatch.");
     }
 
     @Test(description = "Verify error message with invalid credentials")
